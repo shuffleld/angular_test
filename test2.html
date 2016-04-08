@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html ng-app>
+<html ng-app="MyApp">
 <head>
 	<meta charset="UTF-8">
 	<title>test2_angular</title>
 </head>
 <body ng-controller='Data_res'>
 	<div>
-		<h1>我的购物车</h1>
+		<h1>我的购物车&nbsp;</h1>
+		<h1 ng-bind="global_val.title"></h1>
 		<div ng-repeat='val in vals'>
-			<span>{{val.title}}</span>
-			<input ng-model='val.app'>
-			<span>价格：{{val.price}}</span>
+			<span ng-bind="val.title"></span>
+			数量：<input ng-model='val.app'>
+			价格：<span ng-bind="val.price"></span>
+			<!-- <span>{{item.price | currency}}</span> -->
+			<!-- <span>总价：{{item.price * item.app | currency}}</span> -->
 			<button ng-click='remove($index)'>删除</button>
 		</div>	
 	</div>
-	<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-	<!-- <script src="js/test1.js"></script> -->
-	<script>
-		
 
-		function Data_res($scope){
-	$scope.vals = [
-				{title:"刘迪的百科全书",app:9,price:100},
-				{title:"钢铁是怎么炼成的",app:2,price:34},
-				{title:"维基百科",app:3,price:15},
-				{title:"你好——word",app:7,price:78}
-				];
-	$scope.remove = function(i){
-		$scope.vals.splice(i,1);
-	}
-}
-	</script>
+	<form ng-controller="FormTest">
+		<input type="checkbox" ng-model="check_in">
+		<input type="text" ng-change="do_change()" ng-model="do_model.bb">
+		<span ng-bind="a"></span>
+	</form>
+
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+	<script src="js/test1.js"></script> 
+
 </body>
 </html>
