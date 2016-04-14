@@ -1,6 +1,7 @@
 var global_val = {
 	title:'你好Angular',
-	'xx':222
+	xx:222,
+	bb:0
 }
 // function Data_res($scope){
 // 	$scope.global_val = global_val;
@@ -30,10 +31,13 @@ global_model.controller('Data_res',function($scope){
 });
 global_model.controller('FormTest',function($scope){
 	$scope.check_in  = false;
-	$scope.do_change = function(){
+	$scope.do_model = global_val;
+	do_change = function(){
 		$scope.a = $scope.do_model.bb * 2;
+
 	}
-	$scope.do_model = {bb:0}
+	$scope.$watch('do_model.bb',do_change);
+
 })
 
 
